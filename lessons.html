@@ -48,6 +48,11 @@
                 <h1>Cours</h1>
             </div>
         </div>
+        <div class="row mb-3">
+            <div class="col">
+                <input type="text" class="form-control" id="searchInput" placeholder="Search...">
+            </div>
+        </div>
         <div class="row">
             <div class="col-12 col-lg-4">
                 <div class="card mb-4 mb-lg-0 border-light shadow-sm">
@@ -115,6 +120,17 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
+
+    <script>
+        $(document).ready(function () {
+            $("#searchInput").on("keyup", function () {
+                var value = $(this).val().toLowerCase();
+                $("#lessonList .col-12").filter(function () {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>
